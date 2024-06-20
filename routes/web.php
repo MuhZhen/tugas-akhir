@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('newHome');
 })->name('halamandepan');
 
 Route::get('/login-admin', 'LoginAdminController@TampilkanLogin');

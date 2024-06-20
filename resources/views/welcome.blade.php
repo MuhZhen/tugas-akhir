@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +24,7 @@
 
 <body>
 
-  <header class="masthead text-center text-white">
+  <header class="masthead text-center text-white ">
     <div class="masthead-content">
       <div class="container">
         <h2 class="masthead-subheading mb-0">Prioritas Pemenuhan Kebutuhan Sekolah Dalam Situasi Darurat</h2>
@@ -41,26 +40,7 @@
 
 
   <footer class="py-5 bg-black">
-    <div class="container">
-      
-    </div>
-    <!-- /.container -->
-  </footer>
-
-  <footer class="py-5 bg-black">
-    <div class="container">
       <p class="m-0 text-center text-white small">Copyright &copy; SPK Prioritas Bantuan</p>
-    </div>
-    <!-- /.container -->
-  </footer>
-
-
-  <!-- Footer -->
-  <footer class="py-5 bg-black">
-    <div class="container">
-      
-    </div>
-    <!-- /.container -->
   </footer>
 
   <!-- Bootstrap core JavaScript -->

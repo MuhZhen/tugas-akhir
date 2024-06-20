@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 19 Jan 2022 pada 13.29
--- Versi server: 10.4.21-MariaDB
--- Versi PHP: 7.3.31
+-- Host: localhost
+-- Generation Time: Jun 20, 2024 at 06:38 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `alternatif`
+-- Table structure for table `alternatif`
 --
 
 CREATE TABLE `alternatif` (
@@ -34,10 +34,10 @@ CREATE TABLE `alternatif` (
   `verifikasi` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `alternatif`
+-- Dumping data for table `alternatif`
 --
 
 INSERT INTO `alternatif` (`id`, `bantuan_id`, `distribusi`, `verifikasi`, `created_at`, `updated_at`) VALUES
@@ -217,7 +217,7 @@ INSERT INTO `alternatif` (`id`, `bantuan_id`, `distribusi`, `verifikasi`, `creat
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `bantuan`
+-- Table structure for table `bantuan`
 --
 
 CREATE TABLE `bantuan` (
@@ -227,10 +227,10 @@ CREATE TABLE `bantuan` (
   `periode` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `bantuan`
+-- Dumping data for table `bantuan`
 --
 
 INSERT INTO `bantuan` (`id`, `sekolah_id`, `bantuan`, `periode`, `created_at`, `updated_at`) VALUES
@@ -509,7 +509,7 @@ INSERT INTO `bantuan` (`id`, `sekolah_id`, `bantuan`, `periode`, `created_at`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data_periode`
+-- Table structure for table `data_periode`
 --
 
 CREATE TABLE `data_periode` (
@@ -517,10 +517,10 @@ CREATE TABLE `data_periode` (
   `nama_periode` varchar(100) NOT NULL,
   `tahun` varchar(100) NOT NULL,
   `status` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `data_periode`
+-- Dumping data for table `data_periode`
 --
 
 INSERT INTO `data_periode` (`id`, `nama_periode`, `tahun`, `status`) VALUES
@@ -529,7 +529,7 @@ INSERT INTO `data_periode` (`id`, `nama_periode`, `tahun`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kriteria`
+-- Table structure for table `kriteria`
 --
 
 CREATE TABLE `kriteria` (
@@ -539,10 +539,10 @@ CREATE TABLE `kriteria` (
   `atribut` varchar(100) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `kriteria`
+-- Dumping data for table `kriteria`
 --
 
 INSERT INTO `kriteria` (`id`, `nama`, `bobot`, `atribut`, `created_at`, `updated_at`) VALUES
@@ -563,17 +563,17 @@ INSERT INTO `kriteria` (`id`, `nama`, `bobot`, `atribut`, `created_at`, `updated
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -582,17 +582,17 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `nilai_alternatif`
+-- Table structure for table `nilai_alternatif`
 --
 
 CREATE TABLE `nilai_alternatif` (
   `id` int(10) NOT NULL,
   `alternatif_id` int(10) NOT NULL,
   `sub_id` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `nilai_alternatif`
+-- Dumping data for table `nilai_alternatif`
 --
 
 INSERT INTO `nilai_alternatif` (`id`, `alternatif_id`, `sub_id`) VALUES
@@ -2836,7 +2836,7 @@ INSERT INTO `nilai_alternatif` (`id`, `alternatif_id`, `sub_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengguna`
+-- Table structure for table `pengguna`
 --
 
 CREATE TABLE `pengguna` (
@@ -2851,47 +2851,47 @@ CREATE TABLE `pengguna` (
   `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `pengguna`
+-- Dumping data for table `pengguna`
 --
 
 INSERT INTO `pengguna` (`id`, `username`, `nama_asli`, `alamat`, `no_telpon`, `email`, `password`, `level_akses`, `remember_token`, `created_at`, `updated_at`) VALUES
-(3, 'SuperAdmin', 'Muh Zhen', 'Perdos', '082259107415', 'muhzhen006@gmail.com', '$2y$10$I5ORteZ6G1aQpHWHGGFmaOtMPe209XQHt8uA5WGQx10z2aRUJed/G', 'SuperAdmin', NULL, '2021-01-04 08:29:01', '2021-01-27 08:53:52'),
-(4, 'verifikasi', 'Muh Zidan', 'Jalan Soekarno Hatta No 20 Palu', '081341000987', 'budisusatyo@gmail.com', '$2y$10$C/RZFDinJZ22Irr6uWYKdejXJbbt0BmiTqJMbs/jUv5wZEDkgbL6q', 'Relawan Verifikasi', NULL, '2021-01-04 09:27:16', '2021-05-25 19:15:51'),
-(9, 'distribusi', 'Zeyn Za', 'Jl Kelor No 36 Palu', '0877221232211', 'sakaadipura@gmail.com', '$2y$10$9T1oKDxSyRLtSIjz/2q7U.CMKTsROw5btTAaFFzOqN08NwTPYvGhu', 'Relawan Distribusi', NULL, '2021-01-26 07:57:57', '2021-05-25 19:16:00');
+(3, 'superadmin', 'Muh Zhen', 'Perdos', '082259107415', 'muhzhen006@gmail.com', '$2y$10$9hjkYRMhYv22DjadzLNUkOneJff92HhaC4.Uj3/66nF99PcNMskRm', 'SuperAdmin', NULL, '2021-01-04 08:29:01', '2024-06-20 07:36:57'),
+(4, 'verifikasi', 'Muh Zidan', 'Jalan Soekarno Hatta No 20 Palu', '081341000987', 'budisusatyo@gmail.com', '$2y$10$yie0XbE60MDdxo94kYNkmuWjCoU/4EBrJajkzY4/2o2ub4QalsPye', 'Relawan Verifikasi', NULL, '2021-01-04 09:27:16', '2024-06-20 07:37:11'),
+(9, 'distribusi', 'Zeyn Za', 'Jl Kelor No 36 Palu', '0877221232211', 'sakaadipura@gmail.com', '$2y$10$Bz.bcXg.XLuNVJVeDTb6oufIvTmBLu..uM/xI53pVUcH4JsYbRaZS', 'Relawan Distribusi', NULL, '2021-01-26 07:57:57', '2024-06-20 07:37:27');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sekolah`
+-- Table structure for table `sekolah`
 --
 
 CREATE TABLE `sekolah` (
   `id` int(11) NOT NULL,
-  `nama_sekolah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_sekolah` varchar(255) NOT NULL,
   `NPSN` int(11) NOT NULL,
-  `jenjang_pendidikan` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status_sekolah` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alamat` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `kecamatan` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `kabupaten` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `lintang` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bujur` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `no_telpon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `jenjang_pendidikan` varchar(100) NOT NULL,
+  `status_sekolah` varchar(100) NOT NULL,
+  `alamat` varchar(100) NOT NULL,
+  `kecamatan` varchar(100) NOT NULL,
+  `kabupaten` varchar(100) NOT NULL,
+  `lintang` varchar(100) NOT NULL,
+  `bujur` varchar(100) NOT NULL,
+  `no_telpon` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `sekolah`
+-- Dumping data for table `sekolah`
 --
 
 INSERT INTO `sekolah` (`id`, `nama_sekolah`, `NPSN`, `jenjang_pendidikan`, `status_sekolah`, `alamat`, `kecamatan`, `kabupaten`, `lintang`, `bujur`, `no_telpon`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'SD INPRES 1 KAWATUNA', 40203635, 'Sekolah Dasar', 'Sekolah Dasar', 'Jl Gunung Lolo No. 29', 'Kec. Mantikulore', 'Kota Palu', '-0.9088154496191285', '119.92378645382561', 'null', '$2y$10$GYSAx1QuE12HL0R86p3axuxkavFkAHsL8.XmNnO/RuUwMrYwolVbq', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1, 'SD INPRES 1 KAWATUNA', 40203635, 'Sekolah Dasar', 'Sekolah Dasar', 'Jl Gunung Lolo No. 29', 'Kec. Mantikulore', 'Kota Palu', '-0.9088154496191285', '119.92378645382561', 'null', '$2y$10$TbFEGZLdm0F0Uz4EZGfRleo6.S/JPfAXj7itcGmlflIhvKwFBsbCG', '', '0000-00-00 00:00:00', '2024-06-20 08:35:22'),
 (2, 'SD INPRES 1 TALISE', 40203667, 'Sekolah Dasar', 'Negeri', 'Jl. Tombolotutu No. 125', 'Kec. Mantikulore\r\n\r\n', 'Kota Palu', '-0.8842706873684857', '119.88044693014277', '0451451823', '$2y$10$d9YzgH81t4sZO5eEvmTXIOafWOLxoC2Vv.nItgw1pxRuu/.zQp9HW', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3, 'SD INPRES 1 TANAMODINDI', 40203665, 'Sekolah Dasar', 'Sekolah Dasar', 'Jl. Merpati No. 35', 'Kec. Mantikulore', 'Kota Palu', '-0.8893662319542602', '119.89026357946038', '0451457643', '$2y$10$1SdZWle7Ld7IkgIyYmi3uuirNs9Uw0QKekXXMRadDsTDCZSmXMnd2', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (4, 'SD INPRES 1 TONDO', 40203663, 'Sekolah Dasar', 'Sekolah Dasar', 'Jl. Uwe Salura No. 15,', 'Kec. Mantikulore', 'Kota Palu', '-0.8380721801182807', '119.88205019815227', '02147483647', '$2y$10$1SdZWle7Ld7IkgIyYmi3uuirNs9Uw0QKekXXMRadDsTDCZSmXMnd2', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -3167,7 +3167,7 @@ INSERT INTO `sekolah` (`id`, `nama_sekolah`, `NPSN`, `jenjang_pendidikan`, `stat
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sub_kriteria`
+-- Table structure for table `sub_kriteria`
 --
 
 CREATE TABLE `sub_kriteria` (
@@ -3177,10 +3177,10 @@ CREATE TABLE `sub_kriteria` (
   `bobot` double NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `sub_kriteria`
+-- Dumping data for table `sub_kriteria`
 --
 
 INSERT INTO `sub_kriteria` (`id`, `kriteria_id`, `nama`, `bobot`, `created_at`, `updated_at`) VALUES
@@ -3234,32 +3234,32 @@ INSERT INTO `sub_kriteria` (`id`, `kriteria_id`, `nama`, `bobot`, `created_at`, 
 --
 
 --
--- Indeks untuk tabel `alternatif`
+-- Indexes for table `alternatif`
 --
 ALTER TABLE `alternatif`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `bantuan_id` (`bantuan_id`);
 
 --
--- Indeks untuk tabel `data_periode`
+-- Indexes for table `data_periode`
 --
 ALTER TABLE `data_periode`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `kriteria`
+-- Indexes for table `kriteria`
 --
 ALTER TABLE `kriteria`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `nilai_alternatif`
+-- Indexes for table `nilai_alternatif`
 --
 ALTER TABLE `nilai_alternatif`
   ADD PRIMARY KEY (`id`),
@@ -3267,89 +3267,89 @@ ALTER TABLE `nilai_alternatif`
   ADD KEY `nilai_alternatif_ibfk_2` (`sub_id`);
 
 --
--- Indeks untuk tabel `pengguna`
+-- Indexes for table `pengguna`
 --
 ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `sekolah`
+-- Indexes for table `sekolah`
 --
 ALTER TABLE `sekolah`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `sub_kriteria`
+-- Indexes for table `sub_kriteria`
 --
 ALTER TABLE `sub_kriteria`
   ADD PRIMARY KEY (`id`),
   ADD KEY `kriteria_id` (`kriteria_id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `alternatif`
+-- AUTO_INCREMENT for table `alternatif`
 --
 ALTER TABLE `alternatif`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=272;
 
 --
--- AUTO_INCREMENT untuk tabel `data_periode`
+-- AUTO_INCREMENT for table `data_periode`
 --
 ALTER TABLE `data_periode`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `kriteria`
+-- AUTO_INCREMENT for table `kriteria`
 --
 ALTER TABLE `kriteria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
--- AUTO_INCREMENT untuk tabel `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `nilai_alternatif`
+-- AUTO_INCREMENT for table `nilai_alternatif`
 --
 ALTER TABLE `nilai_alternatif`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2779;
 
 --
--- AUTO_INCREMENT untuk tabel `pengguna`
+-- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `sekolah`
+-- AUTO_INCREMENT for table `sekolah`
 --
 ALTER TABLE `sekolah`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=272;
 
 --
--- AUTO_INCREMENT untuk tabel `sub_kriteria`
+-- AUTO_INCREMENT for table `sub_kriteria`
 --
 ALTER TABLE `sub_kriteria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `nilai_alternatif`
+-- Constraints for table `nilai_alternatif`
 --
 ALTER TABLE `nilai_alternatif`
   ADD CONSTRAINT `nilai_alternatif_ibfk_1` FOREIGN KEY (`alternatif_id`) REFERENCES `alternatif` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `nilai_alternatif_ibfk_2` FOREIGN KEY (`sub_id`) REFERENCES `sub_kriteria` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `sub_kriteria`
+-- Constraints for table `sub_kriteria`
 --
 ALTER TABLE `sub_kriteria`
   ADD CONSTRAINT `sub_kriteria_ibfk_1` FOREIGN KEY (`kriteria_id`) REFERENCES `kriteria` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
