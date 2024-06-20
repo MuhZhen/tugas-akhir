@@ -38,7 +38,7 @@
         <div class="sidebar-brand-icon">
           <i class="fas fa-school"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Admin</div>
+        <div class="sidebar-brand-text mx-3">Verifikasi</div>
       </a>
 
       <!-- Divider -->
@@ -59,7 +59,7 @@
 
       <!-- Nav Item - Data Sekolah -->
       <li class="nav-item">
-        <a class="nav-link" data-toggle="modal" data-target="#logoutModal">
+        <a class="nav-link" data-toggle="modal" data-target="#logoutModal" href="">
           <i class="fas fa-fw far fa-arrow-alt-circle-left"></i>
           <span>Keluar</span></a>
       </li>

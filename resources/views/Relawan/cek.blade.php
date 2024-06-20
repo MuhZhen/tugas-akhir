@@ -23,6 +23,7 @@
 
     <!-- Custom styles for this page -->
     <link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+      <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 
@@ -39,7 +40,7 @@
         <div class="sidebar-brand-icon">
           <i class="fas fa-school"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Admin</div>
+        <div class="sidebar-brand-text mx-3">Verifikasi</div>
       </a>
 
       <!-- Divider -->
@@ -60,7 +61,7 @@
 
       <!-- Nav Item - Data Sekolah -->
       <li class="nav-item">
-        <a class="nav-link" data-toggle="modal" data-target="#logoutModal">
+        <a class="nav-link" data-toggle="modal" data-target="#logoutModal" href="">
           <i class="fas fa-fw far fa-arrow-alt-circle-left"></i>
           <span>Keluar</span></a>
       </li>
@@ -147,7 +148,17 @@
                                                   <button class="btn btn-success" @if ($item->verifikasi == 'Sudah Terverifikasi') disabled @endif>
                                                   <i class="fas fa-fw fa-wrench"></i></i> Nilai
                                                   </button>
-                                              </form>
+                                          </form>
+
+                                          <form action="{{ url('/admin/atur/alternatif/'. $item->id).'/editnilai/relawan/batal'}}" method="get" class="d-inline" >
+                                                  <button class="btn btn-danger" @if ($item->verifikasi == 'Belum Diverifikasi') hidden @endif>
+                                                  <i class="fas fa-fw fa-trash"></i></i>
+                                                  </button>
+                                          </form>
+
+                                           
+
+                                          
 
 
                                           </td>

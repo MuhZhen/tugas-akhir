@@ -43,6 +43,7 @@ Route::group(['middleware'=>['auth:pengguna']],function(){
 
         Route::get('admin/atur/alternatif/relawan','alternatifCekController@TampilkanAlternatif')->name('nilai.verifikasi');
         Route::get('admin/atur/alternatif/{id}/editnilai/relawan','alternatifCekController@EditNilaiAlternatif');
+        Route::get('admin/atur/alternatif/{id}/editnilai/relawan/batal','alternatifCekController@EditNilaiBatalAlternatif');
         Route::post('admin/atur/alternatif/{id}/update/relawan','alternatifCekController@UpdateNilaiAlternatif')->name('nilai.relawan');
 
         Route::get('admin/atur/alternatif','AlternatifController@TampilkanAlternatif')->name('tambah.alternatif');

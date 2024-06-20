@@ -62,6 +62,7 @@ class alternatifCekController extends Controller
         foreach ($selectedSub as $a) {
                 $arraySub[] = $a->sub_id;
         }
+        
         return view('Relawan.edit',[
             'master_kriteria'   => $kriteria,
             'master_alternatif'=>$EditTampilAlternatif,
@@ -81,10 +82,51 @@ class alternatifCekController extends Controller
     
     }
 
+    public function EditNilaiBatalAlternatif(Request $request,$id)
+    {
+        $data = array_values($request->except('_token'));
+        // dd($data);
+        
+        
+      
+        
+        //        $data = Crip::find($data);
+                $alternatif = alternatif::find($id);
+                $alternatif->subkriteria()->sync($data);
+
+                $simpan = DB::table('alternatif')
+                ->where('id', $id)
+                ->update(['Verifikasi' => 'Belum Diverifikasi']);
+               
+                return redirect(route('nilai.verifikasi'))->with('status', 'data berhasil disimpan!');
+    
+    }
+
     public function UpdateNilaiAlternatif(Request $request, $id)
     {
         
 
+        // dd($request);
+        // $request->validate([
+        //     "_token" => 'required',
+        //     '52' => 'required',
+        //     '53' => 'required',
+        //     '54' => 'required',
+        //     '55' => 'required',
+        //     '56' => 'required',
+        //     '57' => 'required',
+        //     '58' => 'required',
+        //     '59' => 'required',
+        //     '60' => 'required',
+        //     '61' => 'required',
+        //     '62' => 'required',
+        //     '63' => 'required',
+        //     '64' => 'required',
+            
+        //     // tambahkan aturan validasi untuk field lainnya
+        // ]);
+
+        
         
         $data = array_values($request->except('_token'));
         // dd($data);
@@ -100,7 +142,7 @@ class alternatifCekController extends Controller
                 ->where('id', $id)
                 ->update(['Verifikasi' => 'Sudah Terverifikasi']);
                
-                return redirect(route('nilai.verifikasi'))->with('status', 'data berhasil disimpan!');;
+                return redirect(route('nilai.verifikasi'))->with('status', 'data berhasil disimpan!');
     
     
             
